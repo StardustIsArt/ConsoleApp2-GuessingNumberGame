@@ -8,7 +8,16 @@ class Program
         
         Random rng = new Random();
         int randomNumber = rng.Next(0, 10);
+        Console.Write("Choose a random number:");
+        int userNumberInput = int.Parse(Console.ReadLine());
 
-
+        if (randomNumber == userNumberInput)
+        {
+            Console.WriteLine("You won!");
+        }
+        else
+        {
+            Console.WriteLine("You lost! Try again!");
+        }
     }
 }
