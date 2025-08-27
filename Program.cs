@@ -14,11 +14,7 @@ class Program
         Console.Write("What is your guess for the secret number: ");
         int userNumberInput = int.Parse(Console.ReadLine());
 
-        // user should be able to guess 5 times. If they get it right they win. if they get it wrong they have 4 more
-        // times to guess correctly. If they are close to the answer by 5 then it outputs "You're close!"
-        // Need to put a limit on guesses.
-        // Look up documentation for Math.Abs vs Range check
-
+  
         if (secretNumber == userNumberInput)
         {
             Console.WriteLine("You won!");
@@ -43,6 +39,10 @@ class Program
             // output how many tries they have left
             // output if they are too high or too low (seperately)
             // output if they are within 5 numbers of secret guess
+                  
+        // Need to put a limit on guesses.
+        // Look up documentation for Math.Abs vs Range check
+
         
         if (userNumberInput > secretNumber)
         {
