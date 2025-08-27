@@ -25,39 +25,39 @@ class Program
             Console.WriteLine("Input a valid number!");
             return;
         }
-        if (userNumberInput < secretNumber)
+        for (int i = 0; i < 5; i++)
         {
-            Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
-            Console.Write("What is your next guess for the secret number?");
-            int.Parse(Console.ReadLine());
-        }
-      
-        // How do I make the counter backwards --> look into documentation for that.
-        
-        // for everytime the guess is wrong 
+            int triesLeft = 4;
+            while (triesLeft > 0)
+            {
+                if (userNumberInput < secretNumber)
+                {
+                    Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
+                    // if triesLeft equals 0 then stop.
+                }
+
+                if (userNumberInput > secretNumber)
+                {
+                    Console.WriteLine($"Too High! Try again! You have {triesLeft} amount of tries left.");
+                   // if triesLeft equals 0 then stop.
+                }
+                Console.Write("What is your next guess for the secret number? ");
+                int.Parse(Console.ReadLine());
+                triesLeft = triesLeft - 1;
+               
+            }
+           
+            // When the counter gets down to 0 it needs to stop and restart the game.
+
+            // for everytime the guess is wrong 
             // make them input a new guess
             // output how many tries they have left
-            // output if they are too high or too low (seperately)
+            // output if they are too high or too low (separately)
             // output if they are within 5 numbers of secret guess
-                  
-        // Need to put a limit on guesses.
-        // Look up documentation for Math.Abs vs Range check
 
-        
-        if (userNumberInput > secretNumber)
-        {
-            Console.WriteLine($"Too High! Try again! You have {triesLeft} amount of tries left.");
-        }
-        for (int i = 0; i < 5; i++)
-        { 
-           // int triesLeft = 5;
-            /*   while (triesLeft > 0)
-                         {
-                             Console.Write($"Too Low, you have {triesLeft} tries left! Try again: ");
-                             triesLeft = triesLeft - 1;
-                         }
-             */
-            //}
+            // Need to put a limit on guesses. Can use return to stop while loop?
+            // Look up documentation for Math.Abs vs Range check
+
         }
     }
 }
