@@ -4,30 +4,51 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Let's make a High/Low Number Guessing game for you all to play!");
+        Console.WriteLine("Hey there! Can you guess the secret number?");
 
         const int MAX_USER_INPUT = 100;
         const int MIN_USER_INPUT = 0;
         
         Random rng = new Random();
-        int randomNumber = rng.Next(0, 10);
-        Console.Write("Choose a random number: ");
+        int secretNumber = rng.Next(0, 100);
+        Console.Write("What is your guess for the secret number: ");
         int userNumberInput = int.Parse(Console.ReadLine());
 
-        if (randomNumber == userNumberInput)
+        // user should be able to guess 5 times. If they get it right they win. if they get it wrong they have 4 more
+        // times to guess correctly. If they are close to the answer by 5 then it outputs "You're close!"
+        // Need to put a limit on guesses.
+        // Look up documentation for Math.Abs vs Range check
+
+        for (int i = 0; i < 5; i++)
         {
-            Console.WriteLine("You won!");
-        }
-        if (userNumberInput > MAX_USER_INPUT | userNumberInput < MIN_USER_INPUT)
-        {
-            for (int i = 0; i < 5; i++)
+            if (secretNumber == userNumberInput)
             {
-                int triesLeft = int.Parse(i);
-                Console.WriteLine($"You lost! Try again! You have {triesLeft} amount of tries left.");
+                Console.WriteLine("You won!");
+                break;
+            }
+            if (userNumberInput > MAX_USER_INPUT || userNumberInput < MIN_USER_INPUT)
+            {
+                Console.WriteLine("Input a valid number!");
+                break;
             }
             
-           
+           // for (int j = 0;  j < 5; j++) {
+                int triesLeft = i;
+                if (userNumberInput < secretNumber)
+                {
+                    Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
+                }
+
+                if (userNumberInput > secretNumber)
+                {
+                    Console.WriteLine($"Too High! Try again! You have {triesLeft} amount of tries left.");
+                }
+
+            //}
         }
+        
+       
+        
         
         
         /*else
