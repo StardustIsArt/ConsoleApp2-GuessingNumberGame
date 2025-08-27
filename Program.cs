@@ -19,41 +19,45 @@ class Program
         // Need to put a limit on guesses.
         // Look up documentation for Math.Abs vs Range check
 
-        for (int i = 0; i < 5; i++)
+        if (secretNumber == userNumberInput)
         {
-            if (secretNumber == userNumberInput)
-            {
-                Console.WriteLine("You won!");
-                break;
-            }
-            if (userNumberInput > MAX_USER_INPUT || userNumberInput < MIN_USER_INPUT)
-            {
-                Console.WriteLine("Input a valid number!");
-                break;
-            }
-            
-           // for (int j = 0;  j < 5; j++) {
-                int triesLeft = i;
-                if (userNumberInput < secretNumber)
-                {
-                    Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
-                }
-
-                if (userNumberInput > secretNumber)
-                {
-                    Console.WriteLine($"Too High! Try again! You have {triesLeft} amount of tries left.");
-                }
-
+            Console.WriteLine("You won!");
+            return;
+        }
+        if (userNumberInput > MAX_USER_INPUT || userNumberInput < MIN_USER_INPUT)
+        {
+            Console.WriteLine("Input a valid number!");
+            return;
+        }
+        if (userNumberInput < secretNumber)
+        {
+            Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
+            Console.Write("What is your next guess for the secret number?");
+            int.Parse(Console.ReadLine());
+        }
+      
+        // How do I make the counter backwards --> look into documentation for that.
+        
+        // for everytime the guess is wrong 
+            // make them input a new guess
+            // output how many tries they have left
+            // output if they are too high or too low (seperately)
+            // output if they are within 5 numbers of secret guess
+        
+        if (userNumberInput > secretNumber)
+        {
+            Console.WriteLine($"Too High! Try again! You have {triesLeft} amount of tries left.");
+        }
+        for (int i = 0; i < 5; i++)
+        { 
+           // int triesLeft = 5;
+            /*   while (triesLeft > 0)
+                         {
+                             Console.Write($"Too Low, you have {triesLeft} tries left! Try again: ");
+                             triesLeft = triesLeft - 1;
+                         }
+             */
             //}
         }
-        
-       
-        
-        
-        
-        /*else
-        {
-            Console.WriteLine("You lost! Try again!");
-        }*/
     }
 }
