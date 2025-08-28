@@ -8,13 +8,13 @@ class Program
 
         const int MAX_USER_INPUT = 100;
         const int MIN_USER_INPUT = 0;
+       // const int MAX_AMOUNT_OF_TRIES = 4;
         
         Random rng = new Random();
         int secretNumber = rng.Next(0, 100);
         Console.Write("What is your guess for the secret number: ");
         int userNumberInput = int.Parse(Console.ReadLine());
-
-  
+        
         if (secretNumber == userNumberInput)
         {
             Console.WriteLine("You won!");
@@ -25,11 +25,13 @@ class Program
             Console.WriteLine("Input a valid number!");
             return;
         }
-        for (int i = 0; i < 5; i++)
+        
+        for (int i = 0; i < 4; i++)
         {
-            int triesLeft = 4;
-            while (triesLeft > 0)
-            {
+            int triesLeft = 5;
+            triesLeft = triesLeft - 1;   // why isn't this returning the countdown?
+           
+          
                 if (userNumberInput < secretNumber)
                 {
                     Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
@@ -43,15 +45,13 @@ class Program
                 }
                 Console.Write("What is your next guess for the secret number? ");
                 int.Parse(Console.ReadLine());
-                triesLeft = triesLeft - 1;
                
-            }
+            
+            // I have noticed for every new guess it is the same output as the prior one before (or the first output).
+            // why is it not rechecking the number against the arguments?
            
             // When the counter gets down to 0 it needs to stop and restart the game.
 
-            // for everytime the guess is wrong 
-            // make them input a new guess
-            // output how many tries they have left
             // output if they are too high or too low (separately)
             // output if they are within 5 numbers of secret guess
 
