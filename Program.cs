@@ -14,37 +14,33 @@ class Program
         int secretNumber = rng.Next(0, 100);
         Console.Write("What is your guess for the secret number: ");
         int userNumberInput = int.Parse(Console.ReadLine());
-        
-        if (secretNumber == userNumberInput)
-        {
-            Console.WriteLine("You won!");
-            return;
-        }
-        if (userNumberInput > MAX_USER_INPUT || userNumberInput < MIN_USER_INPUT)
-        {
-            Console.WriteLine("Input a valid number!");
-            return;
-        }
+        int triesLeft = 5;
         
         for (int i = 0; i < 4; i++)
         {
-            int triesLeft = 5;
             triesLeft = triesLeft - 1;   // why isn't this returning the countdown?
-           
-          
-                if (userNumberInput < secretNumber)
-                {
-                    Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
-                    // if triesLeft equals 0 then stop.
-                }
-
-                if (userNumberInput > secretNumber)
-                {
-                    Console.WriteLine($"Too High! Try again! You have {triesLeft} amount of tries left.");
-                   // if triesLeft equals 0 then stop.
-                }
-                Console.Write("What is your next guess for the secret number? ");
-                int.Parse(Console.ReadLine());
+            if (secretNumber == userNumberInput)
+            {
+                Console.WriteLine("You won!");
+                return;
+            }
+            if (userNumberInput > MAX_USER_INPUT || userNumberInput < MIN_USER_INPUT)
+            {
+                Console.WriteLine("Input a valid number!");
+                return;
+            } 
+            if (userNumberInput < secretNumber)
+            {
+                Console.WriteLine($"Too Low! Try again! You have {triesLeft} amount of tries left.");
+                // if triesLeft equals 0 then stop.
+            }
+            if (userNumberInput > secretNumber)
+            {
+                Console.WriteLine($"Too High! Try again! You have {triesLeft} amount of tries left.");
+                // if triesLeft equals 0 then stop.
+            }
+            Console.Write("What is your next guess for the secret number? ");
+            int.Parse(Console.ReadLine());
                
             
             // I have noticed for every new guess it is the same output as the prior one before (or the first output).
