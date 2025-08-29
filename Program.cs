@@ -18,7 +18,7 @@ class Program
         
         for (int i = 0; i < MAX_AMOUNT_OF_TRIES; i++)
         {
-            triesLeft = triesLeft - 1;   // why isn't this returning the countdown?
+            triesLeft = triesLeft - 1;  
             if (secretNumber == userNumberInput)
             {
                 Console.WriteLine("You won!");
@@ -31,18 +31,21 @@ class Program
             } 
             if (userNumberInput < secretNumber)
             {
-                Console.WriteLine("Too Low! Try again!");
+                Console.WriteLine($"Too Low! Try again! You have {triesLeft} tries left. What is your new guess?");
+                userNumberInput = int.Parse(Console.ReadLine());
                 // if triesLeft equals 0 then stop.
             }
             if (userNumberInput > secretNumber)
             {
-                Console.WriteLine("Too High! Try again!");
+                Console.WriteLine($"Too High! Try again! You have {triesLeft} tries left. What is your new guess?");
+                userNumberInput = int.Parse(Console.ReadLine());
                 // if triesLeft equals 0 then stop.
             }
-            Console.Write($"You have {triesLeft} tries left. What is your next guess for the secret number? ");
-            int.Parse(Console.ReadLine());
+            //Console.Write($You have {triesLeft} tries left. What is your next guess for the secret number?);
+           // int.Parse(Console.ReadLine());
             
-            // I have noticed for every new guess the output is as the prior one before (or the first output) ex. "Too High".
+             
+            // I have noticed for every new guess the output is as the prior one before (or the first output) e.g. "Too High" || "too low".
             // why is it not rechecking the number against the arguments?
             // When the counter gets down to 0 it needs to stop and restart the game.
             // output if they are too high or too low (separately)
