@@ -9,6 +9,7 @@ class Program
         const int MAX_USER_INPUT = 100;
         const int MIN_USER_INPUT = 0;
         const int MAX_AMOUNT_OF_TRIES = 5;
+        const int CLOSE_RANGE = 5; 
         
         Random rng = new Random();
         int secretNumber = rng.Next(MIN_USER_INPUT, MAX_USER_INPUT);
@@ -34,7 +35,7 @@ class Program
                 Console.WriteLine($"Too Low! Try again! \nYou have {triesLeft} tries left. \nWhat is your new guess: ");
                 userNumberInput = int.Parse(Console.ReadLine());
             }
-            if (userNumberInput >= secretNumber - 5 && userNumberInput <= secretNumber + 5)
+            if (userNumberInput >= secretNumber - CLOSE_RANGE && userNumberInput <= secretNumber + CLOSE_RANGE)
             {
                 Console.WriteLine("You are close!");
             }
