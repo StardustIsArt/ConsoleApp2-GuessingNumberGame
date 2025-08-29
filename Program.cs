@@ -8,7 +8,7 @@ class Program
 
         const int MAX_USER_INPUT = 100;
         const int MIN_USER_INPUT = 0;
-        const int MAX_AMOUNT_OF_TRIES = 4;
+        const int MAX_AMOUNT_OF_TRIES = 5;
         
         Random rng = new Random();
         int secretNumber = rng.Next(MIN_USER_INPUT, MAX_USER_INPUT);
@@ -28,18 +28,26 @@ class Program
             {
                 Console.WriteLine("Input a valid number!");
                 return;
-            } 
+            }
             if (userNumberInput < secretNumber)
             {
-                Console.WriteLine($"Too Low! Try again! You have {triesLeft} tries left. What is your new guess?");
+                Console.WriteLine($"Too Low! Try again! \nYou have {triesLeft} tries left. \nWhat is your new guess: ");
                 userNumberInput = int.Parse(Console.ReadLine());
                 // if triesLeft equals 0 then stop.
             }
             if (userNumberInput > secretNumber)
             {
-                Console.WriteLine($"Too High! Try again! You have {triesLeft} tries left. What is your new guess?");
+                Console.WriteLine($"Too High! Try again! \nYou have {triesLeft} tries left. \nWhat is your new guess: ");
                 userNumberInput = int.Parse(Console.ReadLine());
                 // if triesLeft equals 0 then stop.
+            }
+            if (userNumberInput >= secretNumber - 5 && userNumberInput <= secretNumber + 5)
+            {
+                Console.WriteLine("You are close!");
+            }
+            if (triesLeft == 0)
+            {
+                Console.WriteLine($"You Lost! Restart the game.");
             }
             
             // Things to work on... shows the same triesLeft after switching from too low or too high.
