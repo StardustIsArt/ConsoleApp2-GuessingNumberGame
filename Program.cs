@@ -33,26 +33,22 @@ class Program
             {
                 Console.WriteLine($"Too Low! Try again! \nYou have {triesLeft} tries left. \nWhat is your new guess: ");
                 userNumberInput = int.Parse(Console.ReadLine());
-                // if triesLeft equals 0 then stop.
-            }
-            if (userNumberInput > secretNumber)
-            {
-                Console.WriteLine($"Too High! Try again! \nYou have {triesLeft} tries left. \nWhat is your new guess: ");
-                userNumberInput = int.Parse(Console.ReadLine());
-                // if triesLeft equals 0 then stop.
             }
             if (userNumberInput >= secretNumber - 5 && userNumberInput <= secretNumber + 5)
             {
                 Console.WriteLine("You are close!");
             }
+            if (userNumberInput > secretNumber)
+            {
+                Console.WriteLine($"Too High! Try again! \nYou have {triesLeft} tries left. \nWhat is your new guess: ");
+                userNumberInput = int.Parse(Console.ReadLine());
+            }
             if (triesLeft == 0)
             {
                 Console.WriteLine($"You Lost! Restart the game.");
             }
-            
             // Things to work on... shows the same triesLeft after switching from too low or too high.
             // Look up documentation for Math.Abs vs Range check
         }
-        
     }
 }
