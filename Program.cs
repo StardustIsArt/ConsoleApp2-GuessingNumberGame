@@ -51,9 +51,6 @@ class Program
             }
             
             // Things to work on... shows the same triesLeft after switching from too low or too high.
-            // I need to have something be returned after the last guess. Are they wrong? etc...
-            // output if they are within 5 numbers of secret guess
-            // When the counter gets down to 0 it needs to stop and restart the game.
             // Look up documentation for Math.Abs vs Range check
         }
         
