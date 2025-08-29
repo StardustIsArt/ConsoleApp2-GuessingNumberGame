@@ -41,15 +41,11 @@ class Program
                 userNumberInput = int.Parse(Console.ReadLine());
                 // if triesLeft equals 0 then stop.
             }
-            //Console.Write($You have {triesLeft} tries left. What is your next guess for the secret number?);
-           // int.Parse(Console.ReadLine());
             
-             
-            // I have noticed for every new guess the output is as the prior one before (or the first output) e.g. "Too High" || "too low".
-            // why is it not rechecking the number against the arguments?
-            // When the counter gets down to 0 it needs to stop and restart the game.
-            // output if they are too high or too low (separately)
+            // Things to work on... shows the same triesLeft after switching from too low or too high.
+            // I need to have something be returned after the last guess. Are they wrong? etc...
             // output if they are within 5 numbers of secret guess
+            // When the counter gets down to 0 it needs to stop and restart the game.
             // Look up documentation for Math.Abs vs Range check
         }
         
